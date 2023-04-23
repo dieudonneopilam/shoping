@@ -13,15 +13,17 @@ return new class extends Migration
     {
         Schema::create('ventes', function (Blueprint $table) {
             $table->id();
+            $table->mediumText('designation_produit');
             $table->integer('qte');
-            $table->integer('prix');
+            $table->integer('prix_vente_total');
+            $table->mediumText('categorie_article');
             $table->dateTime('date_heure');
-            $table->foreignId('article_id')
-                ->nullable()
-                ->constrained();
-            $table->foreignId('commande_id')
-                ->nullable()
-                ->constrained();
+            // $table->foreignId('article_id')
+            //     ->nullable()
+            //     ->constrained();
+            // $table->foreignId('commande_id')
+            //     ->nullable()
+            //     ->constrained();
             $table->timestamps();
         });
     }

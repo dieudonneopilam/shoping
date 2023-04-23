@@ -14,16 +14,18 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
-            $table->string('prenom')->nullable();
+            $table->string('lastname')->nullable();
             $table->string('sexe')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();
-            $table->boolean('isadmin')->nullable();
-            $table->boolean('ismembre')->nullable();
-            $table->boolean('isclient')->nullable();
-            $table->boolean('isdetaillant')->nullable();
-            $table->boolean('isgrossiste')->nullable();
+            $table->boolean('is_admin')->default(0);
+            $table->boolean('is_membre')->default(0);
+            $table->boolean('is_client')->default(0);
+            $table->boolean('is_detaillant')->default(0);
+            $table->boolean('is_grossiste')->default(0);
+            $table->mediumText('phone');
+            $table->mediumText('file');
             $table->rememberToken();
             $table->timestamps();
         });

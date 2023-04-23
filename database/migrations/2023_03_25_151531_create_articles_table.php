@@ -20,6 +20,8 @@ return new class extends Migration
             $table->integer('prix_ancien_detaillant');
             $table->integer('prix_ancien_grossiste');
             $table->integer('qte');
+            $table->mediumText('categorie');
+            $table->dateTime('date_time');
             $table->timestamps();
         });
     }
