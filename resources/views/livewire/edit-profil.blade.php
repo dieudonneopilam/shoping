@@ -1,7 +1,7 @@
 <div class="h-screen p-5 overflow-y-auto bg-white">
     <div class="grid w-11/12 grid-cols-1 mx-auto my-10 bg-white rounded-lg md:border md:w-10/12 md:grid-cols-2">
         <div class="flex items-center justify-center rounded-tl-md">
-            <img class="" src="{{ asset('img/login.png') }}" alt="" srcset="">
+            <img class="" src="{{ Storage::url(Auth::user()->file) }}" alt="" srcset="">
         </div>
         <div class="md:p-10">
             <form wire:submit.prevent='submit' enctype="multipart/form-data">
@@ -14,14 +14,14 @@
                 </div>
                 <div class="grid grid-cols-1 gap-2 md:grid-cols-2">
                     <div class="w-full">
-                        <input wire:model.defer='name' class="w-full h-10 p-2 border rounded" placeholder="nom"
+                        <input wire:model='name' class="w-full h-10 p-2 border rounded" placeholder="nom"
                             type="text">
                         @error('name')
                             <span class="text-red-500">{{ $message }}</span>
                         @enderror
                     </div>
                     <div class="w-full">
-                        <input wire:model.defer='lastname' class="w-full h-10 p-2 border rounded" placeholder="prenom"
+                        <input value="{{ Auth::user()->lastname }}" wire:model.defer='lastname' class="w-full h-10 p-2 border rounded" placeholder="prenom"
                             type="text">
                         @error('lastname')
                             <span class="text-red-500">{{ $message }}</span>
@@ -29,7 +29,7 @@
                     </div>
 
                     <div class="w-full">
-                        <input wire:model.defer='username' class="w-full h-10 p-2 border rounded"
+                        <input value="{{ Auth::user()->email }}" wire:model.defer='username' class="w-full h-10 p-2 border rounded"
                             placeholder="mail or username" type="text">
                         @error('username')
                             <span class="text-red-500">{{ $message }}</span>
@@ -58,7 +58,7 @@
                     </div>
 
                     <div class="w-full">
-                        <select wire:model.defer='categorie' class="w-full h-10 p-2 border rounded" name=""
+                        <select  wire:model.defer='categorie' class="w-full h-10 p-2 border rounded" name=""
                             id="">
                             <option value="">categorie</option>
                             <option value="grossiste">grossiste</option>

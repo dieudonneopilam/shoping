@@ -1,5 +1,5 @@
-<div x-data="{ openadd: false, opentable: true }">
-    <div :class="{ 'hidden': false }" x-show="openadd"
+<div x-data="{ openadd: false, close: true, opentable: true }">
+    <div :class="{ 'hidden': true }" x-bind:class="{ 'hidden': close }" x-show="openadd"
         class="grid w-11/12 mx-auto bg-white md:w-10/12 md:shadow-lg rounded-2xl md:grid-cols-2 h-3/4">
         <div class="w-full p-10 md:block h-96">
             <img class="object-fill w-full h-full rounded-tl-2xl rounded-bl-2xl" src="{{ asset('img/connect.webp') }}"
@@ -136,7 +136,7 @@
                             <option value="100">100</option>
                         </select>
                     </div>
-                    <a href="#" x-on:click="openadd=true,opentable=false"
+                    <a href="#" x-on:click="openadd=true,opentable=false,close=false"
                         class="flex items-center h-10 px-2 my-2 text-white bg-blue-500 border rounded">Nouvel
                         Article</a>
                 </div>

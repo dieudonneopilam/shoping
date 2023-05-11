@@ -17,4 +17,7 @@ class RouteController extends Controller
     public function rapport(){
         return view('admin.rapport');
     }
+    public function editProfil(){
+        return view('pages.edit-profil');
+    }
 }

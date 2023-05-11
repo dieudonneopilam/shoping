@@ -10,10 +10,10 @@
          </div>
      </div>
      <div
-         class="grid w-11/12 grid-cols-1 gap-4 py-5 mx-auto sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
+         class="grid w-11/12 grid-cols-1 gap-4 py-5 mx-auto sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
 
          @forelse ($produits as $produit)
-             <div class="bg-white rounded border shadow-md">
+             <div class="bg-white border rounded shadow-md">
                  <img class="w-full h-auto rounded-tl rounded-tr sm:h-60 md:h-60 objectif-cover"
                      src="{{ Storage::url($produit->file) }}" alt="">
                  <div class="p-4">

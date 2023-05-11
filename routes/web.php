@@ -12,10 +12,12 @@ Route::resource('produit',ProduitController::class);
 
 Route::middleware('auth')->group(function(){
     Route::get('/login',[AuthController::class,'login'])->name('login')->withoutMiddleware('auth')->middleware('is_login');
+    Route::get('/logout',[AuthController::class,'logout'])->name('logout');
     Route::get('/rapport',[RouteController::class,'rapport'])->name('rapport')->middleware('is_admin');
     Route::get('/register',[AuthController::class,'register'])->name('register')->withoutMiddleware('auth')->middleware('is_login');
     Route::get('/gestion',[RouteController::class,'gestion'])->name('gestion')->middleware('is_admin');
     Route::get('/rapport',[RouteController::class,'rapport'])->name('rapport')->middleware('is_admin');
+    Route::get('/edit-profil',[RouteController::class,'editProfil'])->name('edit-profil');
     Route::get('/article',[ArticleController::class,'index'])->name('article');
     Route::resource('vente',VenteController::class);
 });
